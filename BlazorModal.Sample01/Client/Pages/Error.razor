@@ -1,0 +1,22 @@
+﻿@page "/Error"
+
+<a @onclick="OpenModaMB" class="btn btn-warning btn-lg d-block mb-3">Test Question Modal </a>
+
+
+<ModalBoxError Message="Something went wrong!" Confirm="ModalBoxClosed" Title="Oops..." @ref="MEB"></ModalBoxError>
+
+@code {
+
+    public ModalBoxError MEB { get; set; }
+
+    public void OpenModaMB()
+    {
+        MEB.Open();
+        Console.WriteLine("****** Open Modal *****");
+    }
+    public void ModalBoxClosed()
+    {
+        MEB.Close();
+        Console.WriteLine("***** Modal Close *****");
+    }
+}

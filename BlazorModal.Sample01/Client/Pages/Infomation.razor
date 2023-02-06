@@ -1,0 +1,23 @@
+﻿@page "/infomation"
+<a @onclick="OpenModaMB" class="btn btn-danger btn-lg d-block mb-3">Test Question Modal </a>
+
+<ModalBoxInfomation Confirm="ClickedModal" Message="You can use bold text, links and other HTML tags" Title="HTML example" @ref="MB">
+
+</ModalBoxInfomation>
+
+@code 
+{
+    public ModalBoxInfomation MB { get; set; }
+
+    public void OpenModaMB()
+    {
+        MB.Open();
+        Console.WriteLine("ClickedModal");
+    }
+    public void ClickedModal()
+    {
+        MB.Close();
+        Console.WriteLine("تایید شد");
+    }
+}
+

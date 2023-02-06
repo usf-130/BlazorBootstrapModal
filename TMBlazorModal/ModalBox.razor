@@ -1,0 +1,51 @@
+﻿@if (!DisposeModal)
+{
+    <div class="modal @ModalClass @(FadeModalAnimation?"fade":"")" tabindex="-1" aria-labelledby="exampleModalLabel" style="display:@ModalDisplay" aria-hidden="true">
+        <div class="modal-dialog @ModalSizeClass @FullScreenClass">
+            <div class="modal-content">
+                @if (!HideHeader)
+                {
+                    <div class="modal-header">
+                        @if (!HideHeaderTitle)
+                        {
+                             <h2 class="modal-title fs-5" style="font-size:@(TitleFontSize)px"> @HeaderTitle</h2>
+                        }
+                        @if (HeaderHtmlContent != null)
+                        {
+                            @HeaderHtmlContent
+                        }
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" @onclick="() => Close()"></button>
+                    </div>
+                }
+                <div class="modal-body">
+                    @if (BodyHtmlContent != null)
+                    {
+                        @BodyHtmlContent
+                    }
+                </div>
+                @if (!HideFooter)
+                {
+                    <div class="modal-footer">
+                        @if (!HideCanselButton)
+                        {
+                            <button type="button" class="btn btn-danger" @onclick="() => Close()"> @CancelButtonName </button>
+
+                        }
+                        @if (!HideConfirmButton)
+                        {
+                            <button type="button" @onclick="Confirm" class="btn btn-primary"> @ConfirmedButtonName </button>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@if (Backdrop)
+{
+    if (!DisableBackdrop)
+    {
+        <div class="modal-backdrop fade show"></div>
+    }
+}

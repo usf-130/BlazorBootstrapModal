@@ -1,0 +1,364 @@
+﻿@page "/"
+
+<div class="indexBody">
+    <div class="row my-2">
+        <div class="col-md-3 px-1 text-center">
+            <div @onclick="ModalShow" class="card shadow bg-primary text-white py-5 border-0">
+                <div class="card-body fs-4">
+                    Col
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 px-1 text-center">
+            <div @onclick="ModalShow2" class="card shadow bg-secondary text-white py-5 border-0">
+                <div class="card-body fs-4">
+                    Price
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 px-1 text-center">
+            <div @onclick="ModalShow3" class="card shadow bg-success text-white py-5 border-0">
+                <div class="card-body fs-4">
+                    Error Modal
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 px-1 text-center">
+            <div @onclick="ModalShow4" class="card shadow bg-info text-white py-5 border-0">
+                <div class="card-body fs-4">
+                    Infomation Modal
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 px-1 text-center">
+            <div @onclick="ModalShow5" class="card shadow bg-warning text-white py-5 border-0">
+                <div class="card-body fs-4">
+                    Question Modal
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 px-1 text-center">
+            <div @onclick="ModalShow6" class="card shadow bg-danger text-white py-5 border-0">
+                <div class="card-body fs-4">
+                    Success Modal
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<a class="btn btn-danger btn-lg d-block mb-3" @onclick="ModalShow">
+    تست با متد
+</a>
+<a class="btn btn-success btn-lg d-block mb-3" @onclick="ModalShowTwo">
+    تست با متد
+</a>*@
+@* <button type="button" class="btn btn-lg btn-primary d-block" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@@mdo">تست مدال</button>
+*@
+<ModalBox DisableBackdrop="true" HideHeaderTitle="true" Size="ModalBox.ModalSize.ModalXl" Cansel="CloseModalMessage" HeaderTitle="برای نمونه مدال" @ref="ShowModal">
+    <HeaderHtmlContent>
+        <h1 class="modal-title fs-5">پیغام جدید</h1>
+    </HeaderHtmlContent>
+    <BodyHtmlContent>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">col-md-4</div>
+                <div class="col-md-4 ms-auto">col-md-4 ms-auto</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 ms-auto">col-md-3 ms-auto</div>
+                <div class="col-md-2 ms-auto">col-md-2 ms-auto</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ms-auto">col-md-6 ms-auto</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9">
+                    Level 1: .col-sm-9
+                    <div class="row">
+                        <div class="col-8 col-sm-6">
+                            Level 2: .col-8 .col-sm-6
+                        </div>
+                        <div class="col-4 col-sm-6">
+                            Level 2: .col-4 .col-sm-6
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </BodyHtmlContent>
+</ModalBox>
+
+<ModalBox DisableBackdrop="false" HideHeaderTitle="false" Size="ModalBox.ModalSize.ModalXl" Cansel="CloseModalMessage" HeaderTitle=" عنوان در هدر مدال" @ref="ShowModal2">
+    <BodyHtmlContent>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Free</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>10 users included</li>
+                            <li>2 GB of storage</li>
+                            <li>Email support</li>
+                            <li>Help center access</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Pro</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>20 users included</li>
+                            <li>10 GB of storage</li>
+                            <li>Priority email support</li>
+                            <li>Help center access</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                        <h4 class="my-0 fw-normal">Enterprise</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>30 users included</li>
+                            <li>15 GB of storage</li>
+                            <li>Phone and email support</li>
+                            <li>Help center access</li>
+                        </ul>
+                        <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </BodyHtmlContent>
+</ModalBox>
+
+<ModalBox DisableBackdrop="false" HideHeader="false" HideHeaderTitle="false" Size="ModalBox.ModalSize.ModalLg" Cansel="CloseModalMessage" HeaderTitle=" فرم ثبت اطلاعات" @ref="ShowModal3">
+    <BodyHtmlContent>
+        <form class="">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
+            <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+            <hr class="my-4">
+            <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+           <div class="row">
+               <div class="col-md-4">
+                    <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3" type="submit">
+                        <svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"></use></svg>
+                        Sign up with Twitter
+                    </button>
+                  
+               </div>
+               <div class="col-md-4">
+                    <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+                        <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"></use></svg>
+                        Sign up with Facebook
+                    </button>
+                   
+               </div>
+               <div class="col-md-4">
+                    <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+                        <svg class="bi me-1" width="16" height="16"><use xlink:href="#github"></use></svg>
+                        Sign up with GitHub
+                    </button>
+               </div>
+           </div>
+        </form>
+    </BodyHtmlContent>
+</ModalBox>
+
+
+
+
+
+<ModalBox DisableBackdrop="false" HideHeader="false"
+    HideHeaderTitle="true" Size="ModalBox.ModalSize.ModalLg"
+    Cansel="CloseModal" HeaderTitle=" ثبت اطلاعات سند" @ref="ShowModal4">
+    <BodyHtmlContent>
+        <div class="text-center">
+            <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+            <h3 class="fw-bold">سامانه جامع مالی شهرداری تهران</h3>
+            <div class="col-lg-8 mx-auto">
+                <p class="lead mb-4">
+                    شهرداری تهران جهت یکپارچه‌سازی سیستم‌های مالی، اداری، اموال و اتوماسیون اقدام به طراحی یک نرم افزار به نام سیستم جامع مالی شهرداری تهران ( فاینانس ) نموده است. استفاده از نرم‌افزار فاینانس برای کلیه مناطق ۲۲ گانه، سازمان و شرکت‌ها و ادارات ستادی زیر مجموعه اجباری بوده و این نرم‌افزار جایگزینی است
+                    
+                </p>
+            </div>
+        </div>
+    </BodyHtmlContent>
+</ModalBox>
+
+
+
+
+<ModalBox DisableBackdrop="false" HideHeader="true" HideHeaderTitle="true" Size="ModalBox.ModalSize.ModalXl" Cansel="CloseModalMessage" HeaderTitle=" عنوان در هدر مدال" @ref="ShowModal5">
+    <BodyHtmlContent>
+        <div class="table-responsive">
+            <table class="table text-end">
+                <thead>
+                    <tr>
+                        <th style="width: 34%;"></th>
+                        <th style="width: 22%;">Free</th>
+                        <th style="width: 22%;">Pro</th>
+                        <th style="width: 22%;">Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="text-end">Public</th>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-end">Private</th>
+                        <td><i class='bx bx-x-circle text-danger fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <th scope="row" class="text-end">Permissions</th>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-end">Sharing</th>
+                        <td><i class='bx bx-x-circle text-danger fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-end">Unlimited members</th>
+                        <td><i class='bx bx-x-circle text-danger fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-end">Extra security</th>
+                        <td><i class='bx bx-x-circle text-danger fs-4'></i></td>
+                        <td><i class='bx bx-x-circle text-danger fs-4'></i></td>
+                        <td><i class='bx bxs-check-circle fs-4'></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </BodyHtmlContent>
+</ModalBox>
+
+<ModalBox DisableBackdrop="false" HideHeader="true" HideHeaderTitle="true" Size="ModalBox.ModalSize.ModalXl" Cansel="CloseModalMessage" HeaderTitle=" عنوان در هدر مدال" @ref="ShowModal6">
+    <BodyHtmlContent>
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+                        <h3 class="mb-0">Featured post</h3>
+                        <div class="mb-1 text-muted">Nov 12</div>
+                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="stretched-link">Continue reading</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success">Design</strong>
+                        <h3 class="mb-0">Post title</h3>
+                        <div class="mb-1 text-muted">Nov 11</div>
+                        <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="stretched-link">Continue reading</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </BodyHtmlContent>
+</ModalBox>
+
+@code {
+
+    private ModalBox? Modal { get; set; }
+    private ModalBox? ShowModal2 { get; set; }
+    private ModalBox? ShowModal3 { get; set; }
+    private ModalBox? ShowModal4 { get; set; }
+    private ModalBox? ShowModal5 { get; set; }
+    private ModalBox? ShowModal6 { get; set; }
+    private ModalBox? ShowModal7 { get; set; }
+    private ModalBox? ShowModal8 { get; set; }
+
+    public void ModalShow()
+    {
+        ShowModal.Open();
+    }
+    public void ModalShow2()
+    {
+        ShowModal2.Open();
+    }
+    public void ModalShow3()
+    {
+        ShowModal3.Open();
+    }
+    public void ModalShow4()
+    {
+        ShowModal4.Open();
+    }
+    public void ModalShow5()
+    {
+        ShowModal5.Open();
+    }
+    public void ModalShow6()
+    {
+        ShowModal6.Open();
+    }
+    public void ModalShow7()
+    {
+        ShowModal7.Open();
+    }
+    public void ModalShow8()
+    {
+        ShowModal8.Open();
+    }
+
+    public void CloseModalMessage()
+    {
+        ShowModal.CloseAndDispose();
+    }
+
+    public void CloseModal()
+    {
+        Modal.Close();
+    }
+
+}

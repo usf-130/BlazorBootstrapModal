@@ -1,0 +1,57 @@
+﻿@page "/Text"
+
+<a class="btn btn-danger btn-lg d-block mb-3" @onclick="ModalShowTh">
+    لیست خطاها
+</a>
+
+<ModalBox fullScreenModal="ModalBox.FullscreenModal.ModalFullscreenLgDown" modalSize="ModalBox.ModalSize.ModalXl" ShowSubmitButton="true" SubmitButtonName="ارسال تستی" CloseButtonName="تست بستن دکمه" ShowBackdrop="true" Header="true" Footer="true" CloseModal="CloseModalMessage" HeaderTitle="برای نمونه مدال" @ref="ShowErrorModal">
+    <BodyHtmlContent>
+        @foreach (var item in Errors)
+        {
+            <div style="display:block;font-family:IRANSans" class="invalid-feedback">
+                @item.Id - @item.Title
+            </div>
+        }
+    </BodyHtmlContent>
+</ModalBox>
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        SetError = Errors;
+    }
+
+    private ModalBox? ShowErrorModal { get; set; }
+    public List<Error> SetError { get; set; }
+
+    public void ModalShowTh()
+    {
+        ShowErrorModal.Open();
+        Console.WriteLine("ClickedModal");
+    }
+
+    public void CloseModalMessage()
+    {
+        ShowErrorModal.CloseAndDispose();
+        Console.WriteLine("ClickedModal");
+    }
+
+
+    public class Error
+    {
+        public int Id { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+    }
+    public List<Error> Errors = new List<Error>
+    {
+        new Error{Title = "خطا شماره یک",Id=1,Description="خطاهای بسیار سخت ",},
+        new Error{Title = "خطا شماره دو",Id=2,Description="خطاهای بسیار سخت ",},
+        new Error{Title = "خطا شماره سه",Id=3,Description="خطاهای بسیار سخت ",},
+        new Error{Title = "خطا شماره چهار",Id=4,Description="خطاهای بسیار سخت ",},
+        new Error{Title = "خطا شماره پنج",Id=5,Description="خطاهای بسیار سخت ",},
+        new Error{Title = "خطا شماره شش",Id=6,Description="خطاهای بسیار سخت ",},
+    };
+
+}

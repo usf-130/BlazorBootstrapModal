@@ -1,0 +1,34 @@
+﻿@page "/alert"
+
+<a @onclick="OpenModaMAB" class="btn btn-danger btn-lg d-block mb-3">Test Question Modal </a>
+
+<ModalBoxAlert ConfirmButtonText="ارسال تستی" Confirm="ClickedModal" Title="برای تست های بیشتر و خطاهای کمتر" @ref="MAB">
+    <BodyHtmlContent>
+        <ul class="list-group list-group-flush px-0">
+
+            @for (int i = 0; i < 10; i++)
+            {
+                <li class="list-group-item text-danger py-1">
+                    <span class="badge text-bg-danger">@(i + 1)</span>
+                       فیلد تاریخ پر نشده است
+                </li>
+            }
+
+        </ul>
+    </BodyHtmlContent>
+</ModalBoxAlert>
+
+@code {
+    public ModalBoxAlert MAB { get; set; }
+    public void OpenModaMAB()
+    {
+        MAB.Open();
+        Console.WriteLine("Test For Open Model");
+    }
+
+    public void ClickedModal()
+    {
+        MAB.Close();
+        Console.WriteLine("ClickedModal");
+    }
+}

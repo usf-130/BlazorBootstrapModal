@@ -1,0 +1,54 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">BlazorBootstrapModal</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bx bxs-home bx-flashing-hover bx-sm m-2" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="Alert">
+                <span class="bx bxs-error bx-flashing-hover bx-sm m-2" aria-hidden="true"></span> Alert
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="Infomation">
+                <span class="bx bxs-info-circle bx-flashing-hover bx-sm m-2" aria-hidden="true"></span> Infomation
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="Question">
+                <span class="bx bx-question-mark bx-flashing-hover bx-sm m-2" aria-hidden="true"></span> Question
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="Success">
+                <span class="bx bxs-check-square bx-flashing-hover bx-sm m-2" aria-hidden="true"></span> Success
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="Error">
+                <span class="bx bxs-error bx-sm bx-flashing-hover bx-sm m-2" aria-hidden="true"></span> Error
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

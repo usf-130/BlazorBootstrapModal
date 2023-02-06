@@ -1,0 +1,25 @@
+﻿@page "/Success";
+
+<a class="btn btn-success btn-lg d-block mb-3" @onclick="ShowModalBox">
+    Show Success Modal
+</a>
+
+<ModalBoxSuccess HideIcon="false" Timer="2500" Title="Your work has been saved" @ref="ShowModal" />
+
+@code
+{
+    public ModalBoxSuccess ShowModal { get; set; }
+    public void ShowModalBox()
+    {
+        ShowModal.Open();
+        Console.WriteLine("ClickedModal");
+    }
+    public void CloseModalMessage()
+    {
+      //  ShowModal.CloseAndDispose();
+    }
+
+}
+
+
+

@@ -1,0 +1,25 @@
+﻿@page "/Question"
+
+<a @onclick="OpenModalQ" class="btn btn-info btn-lg d-block mb-3">Test Question Modal </a>
+
+<ModalBoxQuestion Cansel="CloseFormTest" Confirm="SubmitFormTest" @ref="MbQ" Title="Are you sure?" Message="You won't be able to revert this!"></ModalBoxQuestion>
+
+@code {
+    public ModalBoxQuestion MbQ { get; set; }
+    public void OpenModalQ()
+    {
+        MbQ.Open();
+    }
+
+    public void SubmitFormTest()
+    {
+        MbQ.Close();
+        Console.WriteLine("Modal was Submit");
+    }
+
+    public void CloseFormTest()
+    {
+        MbQ.Close();
+        Console.WriteLine("Modal was Close");
+    }
+}
